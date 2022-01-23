@@ -13,7 +13,7 @@ pipeline {
 
     stages {
         stage('Initialize'){
-            agent { dockerfile true  }
+            agent { Dockerfile true  }
             steps{
                 script{
                     def dockerHome = tool 'myDocker'
@@ -22,7 +22,7 @@ pipeline {
             }
         }
         stage('Build') {
-            agent { dockerfile true  }
+            agent { Dockerfile true  }
             steps {
                 echo 'Building..'
                 sh 'python --version'
@@ -30,7 +30,7 @@ pipeline {
             }
         }
         stage('Test') {
-            agent { dockerfile true  }
+            agent { Dockerfile true  }
             steps {
                 echo 'Testing..'
                 // Run pytest and check coverage of explicit files to 90% Coverage./
