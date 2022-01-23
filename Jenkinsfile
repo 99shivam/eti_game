@@ -13,7 +13,12 @@ pipeline {
 
     stages {
         stage('Initialize'){
-            agent { Dockerfile true  }
+            agent {
+                docker {
+                   dockerfile true
+                   label 'master'
+                }
+            }
             steps{
                 script{
                     def dockerHome = tool 'myDocker'
